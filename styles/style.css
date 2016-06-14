@@ -1,0 +1,7 @@
+.block {
+    width: 31%;
+    background: #b3ffb3;
+    margin: 1%;
+    height: 100px;
+    display: inline-block;
+}
