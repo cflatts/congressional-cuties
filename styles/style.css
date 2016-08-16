@@ -9,4 +9,6 @@
     flex: 1;
     margin: 1%;
     padding: 1%;
+    min-width: 25%;
+    max-width: 25%;
 }

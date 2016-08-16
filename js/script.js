@@ -1,14 +1,15 @@
 // console.log('hello')
 // console.log($)
 
-var congressionalPromise = $.getJSON('https://congress.api.sunlightfoundation.com/legislators?apikey=0e85724a8f924c6aba8bd576df364eb7')
+var congressionalPromise = $.getJSON('https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=0e85724a8f924c6aba8bd576df364eb7')
 
 var legContainer = document.querySelector('#legContainer')
 
 
 var handleData = function(apiResponse) {
-    // console.log(apiResponse)
+    console.log(apiResponse)
     var legArray = apiResponse.results
+    console.log(legArray)
     var stateString = ''
     for(var i = 0; i < legArray.length; i++) {
         var firstName = legArray[i].first_name,
