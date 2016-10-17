@@ -4,12 +4,11 @@
 var congressionalPromise = $.getJSON('https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=0e85724a8f924c6aba8bd576df364eb7')
 
 var legContainer = document.querySelector('#legContainer')
+var inputNode = document.querySelector('input')
 
 
 var handleData = function(apiResponse) {
-    console.log(apiResponse)
     var legArray = apiResponse.results
-    console.log(legArray)
     var stateString = ''
     for(var i = 0; i < legArray.length; i++) {
         var firstName = legArray[i].first_name,
@@ -37,3 +36,21 @@ var handleData = function(apiResponse) {
     legContainer.innerHTML = stateString
 }
 congressionalPromise.then(handleData)
+
+
+var searchZip = function(stateCode) {
+    var stateUrl = 'https://congress.api.sunlightfoundation.com/legislators?per_page=all&apikey=0e85724a8f924c6aba8bd576df364eb7&state=' + stateCode
+    var statePromise = $.getJSON(stateUrl)
+    statePromise.then(handleData)
+}
+
+var handleKeyPress = function(evt) {
+
+    if(evt.keyCode === 13) {
+        var stateCode = evt.target.value.toUpperCase()
+        searchZip(stateCode)
+    }
+}
+
+
+inputNode.addEventListener('keydown', handleKeyPress)

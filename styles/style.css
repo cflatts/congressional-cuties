@@ -12,3 +12,10 @@
     min-width: 25%;
     max-width: 25%;
 }
+
+input {
+    margin: 0 auto;
+    width: 80%;
+    border: 3px solid red;
+    font-size: 28px;
+}
